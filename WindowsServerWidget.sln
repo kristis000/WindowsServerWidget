@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServerWidget", "WindowsServerWidget.csproj", "{A58A638A-B074-5393-B869-39FDF8784384}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A58A638A-B074-5393-B869-39FDF8784384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58A638A-B074-5393-B869-39FDF8784384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58A638A-B074-5393-B869-39FDF8784384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58A638A-B074-5393-B869-39FDF8784384}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21F50E9C-39C0-4A7B-A720-CB845E4C56D0}
+	EndGlobalSection
+EndGlobal

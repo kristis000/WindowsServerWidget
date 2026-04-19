@@ -1,0 +1,28 @@
+# Build outputs
+.artifacts/
+bin/
+obj/
+build-verify/
+build-verify-2/
+
+# Local .NET and NuGet caches used in this workspace
+.dotnet/
+.nuget/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.rsuser
+
+# IDE folders
+.vs/
+.vscode/
+.idea/
+
+# OS cruft
+Thumbs.db
+Desktop.ini
+
+# User specific files
+test/
