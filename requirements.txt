@@ -1,5 +1,5 @@
 # Repository requirements for building/running WindowsServerWidget
-.NET SDK >= 7.0
-Windows Desktop Runtime >= 7.0
-Target framework: net7.0-windows10.0.18362.0
+.NET SDK >= 10.0
+Windows Desktop Runtime >= 10.0
+Target framework: net10.0-windows10.0.18362.0
 NuGet package: CommunityToolkit.WinUI.Notifications (7.1.2)

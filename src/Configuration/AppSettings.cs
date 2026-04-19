@@ -2,6 +2,8 @@ namespace WindowsServerWidget;
 
 internal sealed class AppSettings
 {
+    public bool StartOnWindowsStartup { get; set; } = true;
+
     public string ServerName { get; set; } = "Ubuntu Server";
 
     public string Host { get; set; } = "ubuntu.local";

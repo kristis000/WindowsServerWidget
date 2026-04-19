@@ -5,6 +5,7 @@ namespace WindowsServerWidget;
 
 internal sealed class SettingsForm : Form
 {
+    private readonly CheckBox _startOnWindowsStartupCheckBox;
     private readonly TextBox _nameTextBox;
     private readonly TextBox _hostTextBox;
     private readonly TextBox _portTextBox;
@@ -18,7 +19,7 @@ internal sealed class SettingsForm : Form
     private static class UiLayout
     {
         public const int WindowWidth = 420;
-        public const int WindowHeight = 340;
+        public const int WindowHeight = 382;
 
         public const int MarginLeft = 24;
         public const int MarginRight = 24;
@@ -54,6 +55,17 @@ internal sealed class SettingsForm : Form
 
         var y = UiLayout.TopPadding;
 
+        _startOnWindowsStartupCheckBox = new CheckBox
+        {
+            Left = UiLayout.MarginLeft,
+            Top = y,
+            Width = UiLayout.ContentWidth,
+            Height = UiLayout.InputHeight,
+            Text = "Start app on Windows startup",
+            Checked = settings.StartOnWindowsStartup
+        };
+        y += UiLayout.InputHeight + UiLayout.SectionGap;
+
         var nameLabel = CreateLabel("Server name", UiLayout.MarginLeft, y, UiLayout.ContentWidth);
         y += UiLayout.LabelHeight + UiLayout.LabelToInputGap;
         _nameTextBox = CreateTextBox(settings.ServerName, UiLayout.MarginLeft, y, UiLayout.ContentWidth);
@@ -85,6 +97,7 @@ internal sealed class SettingsForm : Form
 
         Controls.AddRange(new Control[]
         {
+            _startOnWindowsStartupCheckBox,
             nameLabel,
             _nameTextBox,
             hostLabel,
@@ -148,6 +161,7 @@ internal sealed class SettingsForm : Form
 
         UpdatedSettings = new AppSettings
         {
+            StartOnWindowsStartup = _startOnWindowsStartupCheckBox.Checked,
             ServerName = serverName,
             Host = host,
             Port = port,
@@ -174,6 +188,8 @@ internal sealed class SettingsForm : Form
         var palette = ModernUi.GetPalette(theme);
         BackColor = palette.WindowBackground;
         ForeColor = palette.PrimaryText;
+        _startOnWindowsStartupCheckBox.BackColor = palette.WindowBackground;
+        _startOnWindowsStartupCheckBox.ForeColor = palette.PrimaryText;
 
         foreach (var label in _labels)
         {

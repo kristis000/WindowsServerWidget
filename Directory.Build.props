@@ -1,8 +1,11 @@
 <Project>
   <PropertyGroup>
-    <BaseOutputPath>$(MSBuildThisFileDirectory).artifacts\bin\</BaseOutputPath>
+    <OutputPath>$(MSBuildThisFileDirectory).artifacts\bin\</OutputPath>
+    <IntermediateOutputPath>$(MSBuildThisFileDirectory).artifacts\obj\$(Configuration)\</IntermediateOutputPath>
     <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).artifacts\obj\</BaseIntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <MSBuildProjectExtensionsPath>$(IntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildThisFileDirectory)obj\**;$(MSBuildThisFileDirectory)bin\**;$(MSBuildThisFileDirectory)build-verify\**;$(MSBuildThisFileDirectory)build-verify-2\**</DefaultItemExcludes>
   </PropertyGroup>
 </Project>

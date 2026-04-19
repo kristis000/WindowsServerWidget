@@ -8,14 +8,25 @@ internal sealed class StartupRegistration
     private const string ValueName = "ServerStatus";
     private const string LegacyValueName = "WindowsServerWidget";
 
-    public void EnsureRegistered()
+    public void Apply(bool enabled)
     {
-        var executablePath = Environment.ProcessPath;
-        if (string.IsNullOrWhiteSpace(executablePath))
+        if (enabled)
         {
+            var executablePath = Environment.ProcessPath;
+            if (string.IsNullOrWhiteSpace(executablePath))
+            {
+                return;
+            }
+
+            EnsureRunKeyEntry(executablePath);
             return;
         }
 
+        RemoveRunKeyEntry();
+    }
+
+    private static void EnsureRunKeyEntry(string executablePath)
+    {
         using var key = Registry.CurrentUser.CreateSubKey(RunKeyPath);
         if (key is null)
         {
@@ -33,5 +44,17 @@ internal sealed class StartupRegistration
         {
             key.DeleteValue(LegacyValueName, false);
         }
+    }
+
+    private static void RemoveRunKeyEntry()
+    {
+        using var key = Registry.CurrentUser.CreateSubKey(RunKeyPath);
+        if (key is null)
+        {
+            return;
+        }
+
+        key.DeleteValue(ValueName, false);
+        key.DeleteValue(LegacyValueName, false);
     }
 }

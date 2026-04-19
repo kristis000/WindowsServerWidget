@@ -49,7 +49,7 @@ internal sealed class TrayApplicationContext : ApplicationContext
 
         UpdateState(ServerState.Unknown, "Waiting for first check.");
         _toastNotifications.EnsureRegistered();
-        _startupRegistration.EnsureRegistered();
+        _startupRegistration.Apply(_settings.StartOnWindowsStartup);
         StartMonitoring();
     }
 
@@ -207,6 +207,7 @@ internal sealed class TrayApplicationContext : ApplicationContext
         {
             _settings = updatedSettings;
             _settingsStore.Save(_settings);
+            _startupRegistration.Apply(_settings.StartOnWindowsStartup);
             StartMonitoring();
         };
         _settingsForm.FormClosed += (_, _) => _settingsForm = null;
